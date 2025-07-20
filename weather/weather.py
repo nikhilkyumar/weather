@@ -19,21 +19,21 @@ def get_weather(city):
         humidity = data["main"]["humidity"]
         wind_speed = data["wind"]["speed"]
 
-        print(f"\n📍 Weather in {city_name}, {country}")
-        print(f"🌤  Condition  : {weather}")
-        print(f"🌡  Temperature: {temperature} °C")
-        print(f"💧 Humidity   : {humidity}%")
-        print(f"💨 Wind Speed : {wind_speed} m/s")
+        print(f"\n Weather in {city_name}, {country}")
+        print(f" Condition  : {weather}")
+        print(f" Temperature: {temperature} °C")
+        print(f" Humidity   : {humidity}%")
+        print(f" Wind Speed : {wind_speed} m/s")
 
     except requests.exceptions.HTTPError as http_err:
         if response.status_code == 401:
-            print("❌ Invalid API key. Please check your credentials.")
+            print("Invalid API key. Please check your credentials.")
         elif response.status_code == 404:
-            print("❌ City not found. Please check the city name.")
+            print("City not found. Please check the city name.")
         else:
-            print(f"❌ HTTP error occurred: {http_err}")
+            print(f"HTTP error occurred: {http_err}")
     except Exception as err:
-        print(f"❌ An error occurred: {err}")
+        print(f"An error occurred: {err}")
 
 # Get user input
 city_input = input("Enter a city name: ").strip()
